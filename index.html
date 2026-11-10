@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple task manager for organizing daily activities." />
+    <title>Interactive Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Task Manager Dashboard</h1>
+      <p>Manage your daily activities seamlessly</p>
+    </header>
+
+    <main>
+      <section class="form-section" aria-labelledby="create-heading">
+        <h2 id="create-heading">Create a New Task</h2>
+        <form id="task-form">
+          <div class="input-group">
+            <label for="task-title">Task Description</label>
+            <input
+              type="text"
+              id="task-title"
+              placeholder="e.g., Study for Web Exam"
+              maxlength="120"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="task-priority">Priority</label>
+            <select id="task-priority">
+              <option value="low">Low Priority</option>
+              <option value="medium" selected>Medium Priority</option>
+              <option value="high">High Priority</option>
+            </select>
+          </div>
+
+          <button type="submit" id="add-btn">Add Task</button>
+        </form>
+      </section>
+
+      <section class="list-section" aria-labelledby="tasks-heading">
+        <div class="list-heading">
+          <h2 id="tasks-heading">Your Tasks</h2>
+          <p id="task-count" aria-live="polite">0 tasks</p>
+        </div>
+        <div id="task-list" aria-live="polite">
+          <p class="empty-message">No tasks yet. Add your first task!</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Interactive Task Manager · Web Programming</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

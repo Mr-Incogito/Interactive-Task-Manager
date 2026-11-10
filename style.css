@@ -1,0 +1,264 @@
+:root {
+  --bg-color: #f4f7f6;
+  --card-color: #ffffff;
+  --primary-color: #4a90e2;
+  --text-color: #333333;
+  --low-priority: #2ecc71;
+  --medium-priority: #f1c40f;
+  --high-priority: #e74c3c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin: 12px 0 30px;
+}
+
+header h1 {
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #666;
+}s
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.form-section,
+.list-section {
+  background: var(--card-color);
+  padding: 22px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.form-section h2,
+.list-section h2 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--bg-color);
+  padding-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: 2px solid rgba(74, 144, 226, 0.25);
+  border-color: var(--primary-color);
+}
+
+button {
+  padding: 11px 14px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: #357abd;
+}
+
+button:focus-visible {
+  outline: 3px solid #222;
+  outline-offset: 2px;
+}
+
+#add-btn {
+  width: 100%;
+}
+
+.list-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+#task-count {
+  color: #777;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+#task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.task-item {
+  background: var(--card-color);
+  padding: 15px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid transparent;
+}
+
+.task-item.low { border-left-color: var(--low-priority); }
+.task-item.medium { border-left-color: var(--medium-priority); }
+.task-item.high { border-left-color: var(--high-priority); }
+
+.task-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.task-name {
+  overflow-wrap: anywhere;
+}
+
+.task-item.completed .task-name {
+  text-decoration: line-through;
+  color: #888888;
+}
+
+.priority-label {
+  width: fit-content;
+  padding: 3px 7px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  text-transform: capitalize;
+}
+
+.priority-label.low {
+  color: #176b36;
+  background: #e4f7eb;
+}
+
+.priority-label.medium {
+  color: #765e00;
+  background: #fff6cf;
+}
+
+.priority-label.high {
+  color: #a52d22;
+  background: #fde9e7;
+}
+
+.task-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.task-actions button {
+  width: auto;
+  padding: 7px 10px;
+  font-size: 0.82rem;
+}
+
+.delete-btn {
+  background-color: var(--high-priority);
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.toggle-btn {
+  background-color: var(--low-priority);
+}
+
+.toggle-btn:hover {
+  background-color: #27ae60;
+}
+
+.empty-message {
+  color: #777;
+  text-align: center;
+  padding: 28px 12px;
+  background: #fafafa;
+  border: 1px dashed #d4d4d4;
+  border-radius: 6px;
+}
+
+footer {
+  max-width: 900px;
+  margin: 28px auto 0;
+  text-align: center;
+  color: #888;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 14px;
+  }
+
+  .task-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-actions {
+    width: 100%;
+  }
+
+  .task-actions button {
+    flex: 1;
+  }
+
+  .list-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+}
